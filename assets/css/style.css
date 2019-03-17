@@ -1,0 +1,34 @@
+
+
+.characterBox {
+    height: 100px;
+    width: 130px;
+    float: left;
+    /* margin-right: 10px; */
+    border: 2px solid green;
+}
+
+/* #testBox {
+    height: 100px;
+    width: 130px;
+    float: left;
+    border: 2px solid green;
+}
+
+#topText {
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+#middle {
+    height: 50px;
+    width: 80px;
+    background-color: red;
+}
+
+#bottomText {
+    margin: auto;
+    text-align: center;
+    color: white;
+} */
