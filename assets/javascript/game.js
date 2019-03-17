@@ -26,9 +26,9 @@ $(document).ready(function () {
     var vaderName = "Darth Vader";
     var names = ["obiwan", "luke", "maul", "vader"];
 
-    //
+    
 
-
+    // function that creates each character's HP, AP, CP and name
     function Character(hitPoints, attackPoints, counterPoints, name) {
         this.hitPoints = hitPoints;
         this.attackPoints = attackPoints;
@@ -53,6 +53,7 @@ $(document).ready(function () {
     }
 
 
+    // instantiate each character
     var obiWan = new Character(obiWanHP, obiWanAP, obiWanCP, obiWanName);
     var luke = new Character(lukeHP, lukeAP, lukeCP, lukeName);
     var darthMaul = new Character(darthMaulHP, darthMaulAP, darthMaulCP, darthMaulName);
@@ -63,14 +64,34 @@ $(document).ready(function () {
     // obiWan.attack(luke);
 
 
-
+    // generate the boxes surrounding each character
     function generateCharacterBox(character) {
         for (i = 0; i < names.length; i++) {
             var newBox = $("<div>").addClass("characterBox");
             $(newBox).attr("id", names[i]);
+            $(newBox).append("<p class='characterName'>" + names[i] + "</p>");
             newBox.css('background-color', 'blue');
             $("#characterSelect").append(newBox);
         }
+
+        $(".characterBox").on("click", function() {
+            console.log($(this));
+            // console.log($("#color").css('background-color'));
+    
+            if ($(this).attr('id') == "obiwan") {
+                $("#enemySelect").append($("#luke"), $("#maul"), $("#vader"));
+            }
+            else if ($(this).attr('id') == "luke") {
+                $("#enemySelect").append($("#obiwan"), $("#maul"), $("#vader"));
+            }
+            else if ($(this).attr('id') == "maul") {
+                $("#enemySelect").append($("#obiwan"), $("#luke"), $("#vader"));
+            }
+            else if ($(this).attr('id') == "vader") {
+                $("#enemySelect").append($("#obiwan"), $("#luke"), $("#maul"));
+            }
+    
+        })
     }
 
     generateCharacterBox();

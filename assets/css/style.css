@@ -8,6 +8,11 @@
     border: 2px solid green;
 }
 
+.characterName {
+    text-align: center;
+    color: white;
+}
+
 /* #testBox {
     height: 100px;
     width: 130px;
