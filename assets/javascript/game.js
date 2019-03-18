@@ -32,7 +32,7 @@ $(document).ready(function () {
     var selectedDefender;
     var movedToDefender = false;
 
-    
+
 
     // function that creates each character's HP, AP, CP and name
     function Character(hitPoints, attackPoints, counterPoints, name) {
@@ -83,8 +83,8 @@ $(document).ready(function () {
             $("#characterSelect").append(newBox);
         }
 
-        $(".characterBox").on("click", function() {
-        
+        $(".characterBox").on("click", function () {
+
             // console.log($(this));
 
             if (selectedCharacter == null) {
@@ -127,14 +127,14 @@ $(document).ready(function () {
                 //         else if ($(this).attr('id') == "vader") {
                 //             $("#defender").append($("#vader"))
                 //         }
-    
+
                 //     }
 
                 // }
                 movedToDefender = true;
 
 
-                
+
                 // if ($(this).attr('id') == "obiwan") {
                 //     $("#defender").append($("#obiwan"))
                 // }
@@ -150,11 +150,11 @@ $(document).ready(function () {
 
             }
         })
-        
+
 
 
         // move characters to defender 
-        $("#obiwan").on("click", function() {
+        $("#obiwan").on("click", function () {
             if (movedToDefender == true) {
 
                 if (selectedCharacter != "obiwan") {
@@ -166,7 +166,7 @@ $(document).ready(function () {
                 }
             }
         })
-        $("#luke").on("click", function() {
+        $("#luke").on("click", function () {
             if (movedToDefender == true) {
 
                 if (selectedCharacter != "luke") {
@@ -178,7 +178,7 @@ $(document).ready(function () {
                 }
             }
         })
-        $("#maul").on("click", function() {
+        $("#maul").on("click", function () {
             if (movedToDefender == true) {
 
                 if (selectedCharacter != "maul") {
@@ -190,7 +190,7 @@ $(document).ready(function () {
                 }
             }
         })
-        $("#vader").on("click", function() {
+        $("#vader").on("click", function () {
             if (movedToDefender == true) {
 
                 if (selectedCharacter != "vader") {
@@ -203,12 +203,12 @@ $(document).ready(function () {
             }
         })
 
-        
+
     }
 
     generateCharacterBox();
 
-    $("#attack").on("click", function() {
+    $("#attack").on("click", function () {
         // debugger;
         if (selectedCharacter == "obiwan" && obiWan.hitPoints > 0) {
             if (selectedDefender == "luke") {
@@ -266,6 +266,39 @@ $(document).ready(function () {
                 vader.attack(darthMaul);
             }
         }
+    })
+
+    $("#reset").on("click", function () {
+        // HP 
+        obiWanHP = 10;
+        lukeHP = 10;
+        darthMaulHP = 10;
+        vaderHP = 10;
+
+        //Attack Points
+        obiWanAP = 2;
+        lukeAP = 2;
+        darthMaulAP = 2;
+        vaderAP = 2;
+
+        //Counter Attack Points
+        obiWanCP = 1;
+        lukeCP = 1;
+        darthMaulCP = 1;
+        vaderCP = 1;
+
+        //Variable declaration
+        movedToEnemies = false;
+        selectedCharacter;
+        selectedDefender;
+        movedToDefender = false;
+
+        $(".characterBox").empty();
+        $("#characterSelect").empty();
+        $("#enemySelect").empty();
+        $("#defender").empty();
+
+        generateCharacterBox();
     })
 
 });
