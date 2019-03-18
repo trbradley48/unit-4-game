@@ -26,6 +26,12 @@ $(document).ready(function () {
     var vaderName = "Darth Vader";
     var names = ["obiwan", "luke", "maul", "vader"];
 
+    // Variable declaration
+    var movedToEnemies = false;
+    var selectedCharacter;
+    var selectedDefender;
+    var movedToDefender = false;
+
     
 
     // function that creates each character's HP, AP, CP and name
@@ -52,6 +58,13 @@ $(document).ready(function () {
         };
     }
 
+    // function selectDefender (defender) {
+    //     this.defender = defender;
+    //     if (this.defender != x) {
+
+    //     }
+    // }
+
 
     // instantiate each character
     var obiWan = new Character(obiWanHP, obiWanAP, obiWanCP, obiWanName);
@@ -75,23 +88,192 @@ $(document).ready(function () {
         }
 
         $(".characterBox").on("click", function() {
+        
             console.log($(this));
-            // console.log($("#color").css('background-color'));
+
+            if (selectedCharacter == null) {
+                selectedCharacter = $(this).attr("id");
+                // $(".characterBox").off("click", this);
+            }
+            
+            console.log("Selected character: " + selectedCharacter);
+
+            if (movedToEnemies === false) {
+
+                if ($(this).attr('id') == "obiwan") {
+                    $("#enemySelect").append($("#luke"), $("#maul"), $("#vader"));
+                    movedToEnemies = true;
+                }
+                else if ($(this).attr('id') == "luke") {
+                    $("#enemySelect").append($("#obiwan"), $("#maul"), $("#vader"));
+                    movedToEnemies = true;
+                }
+                else if ($(this).attr('id') == "maul") {
+                    $("#enemySelect").append($("#obiwan"), $("#luke"), $("#vader"));
+                    movedToEnemies = true;
+                }
+                else if ($(this).attr('id') == "vader") {
+                    $("#enemySelect").append($("#obiwan"), $("#luke"), $("#maul"));
+                    movedToEnemies = true;
+                }
+
+                // debugger;
+                if (movedToDefender == true) {
+
+                    if (selectedCharacter == "obiwan") {
+
+                        if ($(this).attr('id') == "luke") {
+                            $("#defender").append($("#luke"))
+                            console.log("Defender: " + this);
+                            // movedToDefener = false;
+                        }
+                        else if ($(this).attr('id') == "maul") {
+                            $("#defender").append($("#maul"))
+                        }
+                        else if ($(this).attr('id') == "vader") {
+                            $("#defender").append($("#vader"))
+                        }
     
-            if ($(this).attr('id') == "obiwan") {
-                $("#enemySelect").append($("#luke"), $("#maul"), $("#vader"));
+                    }
+
+                }
+                movedToDefender = true;
+                
+                // if ($(this).attr('id') == "obiwan") {
+                //     $("#defender").append($("#obiwan"))
+                // }
+                // else if ($(this).attr('id') == "luke") {
+                //     $("#defender").append($("#luke"))
+                // }
+                // else if ($(this).attr('id') == "maul") {
+                //     $("#defender").append($("#maul"))
+                // }
+                // else if ($(this).attr('id') == "vader") {
+                //     $("#defender").append($("#vader"))
+                // }
+
             }
-            else if ($(this).attr('id') == "luke") {
-                $("#enemySelect").append($("#obiwan"), $("#maul"), $("#vader"));
-            }
-            else if ($(this).attr('id') == "maul") {
-                $("#enemySelect").append($("#obiwan"), $("#luke"), $("#vader"));
-            }
-            else if ($(this).attr('id') == "vader") {
-                $("#enemySelect").append($("#obiwan"), $("#luke"), $("#maul"));
-            }
-    
         })
+        
+
+
+        // move characters to defender 
+        $("#obiwan").on("click", function() {
+            if (movedToDefender == true) {
+
+                if (selectedCharacter != "obiwan") {
+                    $("#defender").append($(this));
+                    selectedDefender = "obiwan";
+                    console.log("Selected Defender: " + selectedDefender);
+                    movedToDefender = false;
+
+                }
+            }
+        })
+        $("#luke").on("click", function() {
+            if (movedToDefender == true) {
+
+                if (selectedCharacter != "luke") {
+                    $("#defender").append($(this));
+                    selectedDefender = "luke";
+                    console.log("Selected Defender: " + selectedDefender);
+                    movedToDefender = false;
+
+                }
+            }
+        })
+        $("#maul").on("click", function() {
+            if (movedToDefender == true) {
+
+                if (selectedCharacter != "maul") {
+                    $("#defender").append($(this));
+                    selectedDefender = "maul";
+                    console.log("Selected Defender: " + selectedDefender);
+                    movedToDefender = false;
+
+                }
+            }
+        })
+        $("#vader").on("click", function() {
+            if (movedToDefender == true) {
+
+                if (selectedCharacter != "vader") {
+                    $("#defender").append($(this));
+                    selectedDefender = "vader";
+                    console.log("Selected Defender: " + selectedDefender);
+                    movedToDefender = false;
+
+                }
+            }
+        })
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // $("#luke").on("click", function() {
+        //     if (movedToDefender == true) {
+
+        //         if (selectedCharacter == "obiwan") {
+
+        //             if ($(this).attr('id') == "luke") {
+        //                 $("#defender").append($("#luke"))
+        //                 selectedDefender = "luke";
+        //                 console.log("Defender: " + selectedDefender);
+
+
+        //             }
+        //         }
+        //     }
+        // })
+        // $("#luke").on("click", function() {
+        //     if (movedToDefender == true) {
+
+        //         if (selectedCharacter == "obiwan") {
+
+        //             if ($(this).attr('id') == "luke") {
+        //                 $("#defender").append($("#luke"))
+        //                 selectedDefender = "luke";
+        //                 console.log("Defender: " + selectedDefender);
+
+
+        //             }
+        //         }
+        //     }
+        // })
+        // $("#luke").on("click", function() {
+        //     if (movedToDefender == true) {
+
+        //         if (selectedCharacter == "obiwan") {
+
+        //             if ($(this).attr('id') == "luke") {
+        //                 $("#defender").append($("#luke"))
+        //                 selectedDefender = "luke";
+        //                 console.log("Defender: " + selectedDefender);
+
+
+        //             }
+        //         }
+        //     }
+        // })
     }
 
     generateCharacterBox();

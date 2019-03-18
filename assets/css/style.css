@@ -13,6 +13,10 @@
     color: white;
 }
 
+#title {
+    text-align: center;
+}
+
 /* #testBox {
     height: 100px;
     width: 130px;
