@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     // HP 
-    var obiWanHP = 2;
+    var obiWanHP = 10;
     var lukeHP = 10;
     var darthMaulHP = 10;
     var vaderHP = 10;
@@ -53,7 +53,7 @@ $(document).ready(function () {
                 console.log(this.name + "'s HP after counter: " + this.hitPoints);
             }
             if (this.hitPoints < 1) {
-                console.log(this.name + " has died.");
+                console.log(this.name + " has died. Please try again!");
             }
         };
     }
@@ -73,10 +73,6 @@ $(document).ready(function () {
     var vader = new Character(vaderHP, vaderAP, vaderCP, vaderName);
 
 
-    // obiWan.attack(luke);
-    // obiWan.attack(luke);
-
-
     // generate the boxes surrounding each character
     function generateCharacterBox(character) {
         for (i = 0; i < names.length; i++) {
@@ -89,14 +85,12 @@ $(document).ready(function () {
 
         $(".characterBox").on("click", function() {
         
-            console.log($(this));
+            // console.log($(this));
 
             if (selectedCharacter == null) {
                 selectedCharacter = $(this).attr("id");
-                // $(".characterBox").off("click", this);
+                console.log("Selected character: " + selectedCharacter);
             }
-            
-            console.log("Selected character: " + selectedCharacter);
 
             if (movedToEnemies === false) {
 
@@ -118,26 +112,28 @@ $(document).ready(function () {
                 }
 
                 // debugger;
-                if (movedToDefender == true) {
+                // if (movedToDefender == true) {
 
-                    if (selectedCharacter == "obiwan") {
+                //     if (selectedCharacter == "obiwan") {
 
-                        if ($(this).attr('id') == "luke") {
-                            $("#defender").append($("#luke"))
-                            console.log("Defender: " + this);
-                            // movedToDefener = false;
-                        }
-                        else if ($(this).attr('id') == "maul") {
-                            $("#defender").append($("#maul"))
-                        }
-                        else if ($(this).attr('id') == "vader") {
-                            $("#defender").append($("#vader"))
-                        }
+                //         if ($(this).attr('id') == "luke") {
+                //             $("#defender").append($("#luke"))
+                //             console.log("Defender: " + this);
+                //             // movedToDefener = false;
+                //         }
+                //         else if ($(this).attr('id') == "maul") {
+                //             $("#defender").append($("#maul"))
+                //         }
+                //         else if ($(this).attr('id') == "vader") {
+                //             $("#defender").append($("#vader"))
+                //         }
     
-                    }
+                //     }
 
-                }
+                // }
                 movedToDefender = true;
+
+
                 
                 // if ($(this).attr('id') == "obiwan") {
                 //     $("#defender").append($("#obiwan"))
@@ -206,76 +202,70 @@ $(document).ready(function () {
                 }
             }
         })
+
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // $("#luke").on("click", function() {
-        //     if (movedToDefender == true) {
-
-        //         if (selectedCharacter == "obiwan") {
-
-        //             if ($(this).attr('id') == "luke") {
-        //                 $("#defender").append($("#luke"))
-        //                 selectedDefender = "luke";
-        //                 console.log("Defender: " + selectedDefender);
-
-
-        //             }
-        //         }
-        //     }
-        // })
-        // $("#luke").on("click", function() {
-        //     if (movedToDefender == true) {
-
-        //         if (selectedCharacter == "obiwan") {
-
-        //             if ($(this).attr('id') == "luke") {
-        //                 $("#defender").append($("#luke"))
-        //                 selectedDefender = "luke";
-        //                 console.log("Defender: " + selectedDefender);
-
-
-        //             }
-        //         }
-        //     }
-        // })
-        // $("#luke").on("click", function() {
-        //     if (movedToDefender == true) {
-
-        //         if (selectedCharacter == "obiwan") {
-
-        //             if ($(this).attr('id') == "luke") {
-        //                 $("#defender").append($("#luke"))
-        //                 selectedDefender = "luke";
-        //                 console.log("Defender: " + selectedDefender);
-
-
-        //             }
-        //         }
-        //     }
-        // })
     }
 
     generateCharacterBox();
+
+    $("#attack").on("click", function() {
+        // debugger;
+        if (selectedCharacter == "obiwan" && obiWan.hitPoints > 0) {
+            if (selectedDefender == "luke") {
+                console.log("attacking");
+                obiWan.attack(luke);
+            }
+            if (selectedDefender == "maul") {
+                console.log("attacking");
+                obiWan.attack(darthMaul);
+            }
+            if (selectedDefender == "vader") {
+                console.log("attacking");
+                obiWan.attack(vader);
+            }
+        }
+        if (selectedCharacter == "luke" && luke.hitPoints > 0) {
+            if (selectedDefender == "obiwan") {
+                console.log("attacking");
+                luke.attack(obiWan);
+            }
+            if (selectedDefender == "maul") {
+                console.log("attacking");
+                luke.attack(darthMaul);
+            }
+            if (selectedDefender == "vader") {
+                console.log("attacking");
+                luke.attack(vader);
+            }
+        }
+        if (selectedCharacter == "maul" && darthMaul.hitPoints > 0) {
+            if (selectedDefender == "obiwan") {
+                console.log("attacking");
+                darthMaul.attack(obiWan);
+            }
+            if (selectedDefender == "luke") {
+                console.log("attacking");
+                darthMaul.attack(luke);
+            }
+            if (selectedDefender == "vader") {
+                console.log("attacking");
+                darthMaul.attack(vader);
+            }
+        }
+        if (selectedCharacter == "vader" && vader.hitPoints > 0) {
+            if (selectedDefender == "obiwan") {
+                console.log("attacking");
+                vader.attack(obiWan);
+            }
+            if (selectedDefender == "luke") {
+                console.log("attacking");
+                vader.attack(luke);
+            }
+            if (selectedDefender == "maul") {
+                console.log("attacking");
+                vader.attack(darthMaul);
+            }
+        }
+    })
 
 });
