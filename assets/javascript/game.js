@@ -94,18 +94,30 @@ $(document).ready(function () {
 
                 if ($(this).attr('id') == "obiwan") {
                     $("#enemySelect").append($("#luke"), $("#maul"), $("#vader"));
+                    $("#luke").css('border-color', 'red');
+                    $("#maul").css('border-color', 'red');
+                    $("#vader").css('border-color', 'red');
                     movedToEnemies = true;
                 }
                 else if ($(this).attr('id') == "luke") {
                     $("#enemySelect").append($("#obiwan"), $("#maul"), $("#vader"));
+                    $("#obiwan").css('border-color', 'red');
+                    $("#maul").css('border-color', 'red');
+                    $("#vader").css('border-color', 'red');
                     movedToEnemies = true;
                 }
                 else if ($(this).attr('id') == "maul") {
                     $("#enemySelect").append($("#obiwan"), $("#luke"), $("#vader"));
+                    $("#obiwan").css('border-color', 'red');
+                    $("#luke").css('border-color', 'red');
+                    $("#vader").css('border-color', 'red');
                     movedToEnemies = true;
                 }
                 else if ($(this).attr('id') == "vader") {
                     $("#enemySelect").append($("#obiwan"), $("#luke"), $("#maul"));
+                    $("#obiwan").css('border-color', 'red');
+                    $("#luke").css('border-color', 'red');
+                    $("#maul").css('border-color', 'red');
                     movedToEnemies = true;
                 }
             }
