@@ -289,8 +289,8 @@ $(document).ready(function () {
 
         //Variable declaration
         movedToEnemies = false;
-        selectedCharacter;
-        selectedDefender;
+        selectedCharacter = null;
+        selectedDefender = null;
         movedToDefender = false;
 
         $(".characterBox").empty();
