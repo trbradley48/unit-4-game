@@ -11,8 +11,35 @@
 .characterName {
     text-align: center;
     color: white;
+    margin-bottom: 5px;
 }
 
 #title {
     text-align: center;
+}
+
+
+#obiwanPicture {
+    height: 50px;
+    width: 65px;
+    margin: auto;
+    background-image: url("../images/obiwan_image.png");
+}
+#lukePicture {
+    height: 50px;
+    width: 65px;
+    margin: auto;
+    background-image: url("../images/luke_image.jpg");
+}
+#maulPicture {
+    height: 50px;
+    width: 65px;
+    margin: auto;
+    background-color: white;
+}
+#vaderPicture {
+    height: 50px;
+    width: 65px;
+    margin: auto;
+    background-color: white;
 }
