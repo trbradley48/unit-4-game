@@ -103,14 +103,17 @@ $(document).ready(function () {
 
 
     // generate the boxes surrounding each character
-    function generateCharacterBox(character) {
+    function generateCharacterBox() {
         for (i = 0; i < names.length; i++) {
             var newBox = $("<div>").addClass("characterBox");
             $(newBox).attr("id", names[i]);
             $(newBox).append("<p class='characterName'>" + names[i] + "</p>");
+            var newPictureContainer = $("<div>").addClass("pictureContainer");
+            $(newPictureContainer).appendTo(newBox);
+            var newPicture = $("<div id='" + names[i] + "Picture'>");
+            $(newPicture).appendTo(newPictureContainer);
+            $(newBox).append("<div id='" + names[i] + "HP'>");
             newBox.css('background-color', 'blue');
-            newBox.append("<div id='" + names[i] + "Picture'>");
-            // $("#" + names[i]).css('background')
             $("#characterSelect").append(newBox);
         }
 

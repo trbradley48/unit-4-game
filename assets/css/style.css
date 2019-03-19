@@ -1,5 +1,13 @@
 
 
+body {
+    height: 100%;
+    height: auto;
+    background: url("../images/xWing.jpg") no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
 .characterBox {
     height: 100px;
     width: 130px;
@@ -20,26 +28,37 @@
 
 
 #obiwanPicture {
-    height: 50px;
-    width: 65px;
+    height: 100%;
+    width: 100%;
     margin: auto;
-    background-image: url("../images/obiwan_image.png");
+    background: url("../images/obiwan_image.png") no-repeat;
+    background-size: cover;
 }
 #lukePicture {
-    height: 50px;
-    width: 65px;
+    height: 100%;
+    width: 100%;
     margin: auto;
     background-image: url("../images/luke_image.jpg");
+    background-size: cover;
 }
 #maulPicture {
-    height: 50px;
-    width: 65px;
+    height: 100%;
+    width: 100%;
     margin: auto;
-    background-color: white;
+    background-image: url("../images/maul_image.jpeg");
+    background-size: cover;
 }
 #vaderPicture {
+    height: 100%;
+    width: 100%;
+    width: auto;
+    margin: auto;
+    background-image: url("../images/vader_image.jpg");
+    background-size: cover;
+}
+
+.pictureContainer {
     height: 50px;
     width: 65px;
     margin: auto;
-    background-color: white;
 }
