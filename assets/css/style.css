@@ -1,15 +1,16 @@
 
 
 body {
-    height: 100%;
-    height: auto;
+    /* height: 100%;
+    height: auto; */
     background: url("../images/xWing.jpg") no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background-size: auto;
+    /* background-position: center center; */
 }
 
+
 .characterBox {
-    height: 100px;
+    height: 105px;
     width: 130px;
     float: left;
     /* margin-right: 10px; */
@@ -59,6 +60,24 @@ body {
 
 .pictureContainer {
     height: 50px;
-    width: 65px;
+    width: 80px;
     margin: auto;
+}
+
+.textContainer {
+    text-align: center;
+    color: white;
+}
+
+.btn {
+    margin-bottom: 15px;
+}
+
+.textResultsContainer {
+    color: white;
+    font-size: 16px;
+}
+
+#textResults1 {
+    margin-bottom: 8px;
 }
